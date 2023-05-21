@@ -1,12 +1,12 @@
 
 # Application LoadBalancer
-module "janes_alb" {
+module "engrsketch_alb" {
   source                = "terraform-aws-modules/alb/aws"
   version               = "8.6.0"
-  name                  = "janes-alb"
+  name                  = "engrsketch-alb"
   load_balancer_type    = "application"
-  vpc_id                = module.janes_vpc.vpc_id
-  subnets               = module.janes_vpc.public_subnets
+  vpc_id                = module.engrsketch_vpc.vpc_id
+  subnets               = module.engrsketch_vpc.public_subnets
   create_security_group = false
   security_groups       = [module.ALB_security_group.security_group_id]
   http_tcp_listeners = [
@@ -18,7 +18,7 @@ module "janes_alb" {
   ]
   target_groups = [
     {
-      name_prefix                       = "janes-"
+      name_prefix                       = "engrsketch-"
       backend_protocol                  = "HTTP"
       backend_port                      = 80
       target_type                       = "instance"
@@ -38,7 +38,7 @@ module "janes_alb" {
       protocol_version = "HTTP1"
       tags = {
         Environment = "dev"
-        Owner       = "Janes"
+        Owner       = "engrsketch"
       }
     }
   ]

@@ -10,7 +10,7 @@ terraform {
   # Adding Backend as s3 for remote state storage
   backend "s3" {
     bucket = "terraform-state-engrsketch"
-    key    = "janes/terraform.tfstate"
+    key    = "engrsketch/terraform.tfstate"
     region = "eu-west-2"
     # DynamoDB for state locking
     dynamodb_table = "state-table-engrsketch"
@@ -19,5 +19,5 @@ terraform {
 
 provider "aws" {
   region = var.aws_region
-  #profile = "janes"
+  #profile = "engrsketch"
 }

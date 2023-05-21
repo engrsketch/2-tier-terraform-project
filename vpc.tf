@@ -1,6 +1,6 @@
 
 # VPC resources
-module "janes_vpc" {
+module "engrsketch_vpc" {
   source                               = "terraform-aws-modules/vpc/aws"
   version                              = "4.0.1"
   name                                 = var.vpc_name

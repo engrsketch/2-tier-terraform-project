@@ -7,7 +7,7 @@ variable "aws_region" {
 variable "tags" {
   type = map(string)
   default = {
-    Owner       = "Janes"
+    Owner       = "engrsketch"
     Environment = "Dev"
   }
 }
@@ -16,7 +16,7 @@ variable "tags" {
 # variable "vpc_name" {
 #   description = "Name of VPC"
 #   type        = string
-#   default     = "Janes-vpc"
+#   default     = "engrsketch-vpc"
 # }
 # variable "vpc_cidr" {
 #   type    = string
@@ -57,9 +57,9 @@ variable "tags" {
 # }
 # variable "launch_template" {
 #   type    = string
-#   default = "Janes-lt"
+#   default = "engrsketch-lt"
 # }
 # variable "asg_name" {
 #   type    = string
-#   default = "Janes-asg"
+#   default = "engrsketch-asg"
 # }

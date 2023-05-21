@@ -1,6 +1,6 @@
 
 # KMS key for EBS encryption
-module "janes_kms_key" {
+module "engrsketch_kms_key" {
   source                            = "terraform-aws-modules/kms/aws"
   version                           = "1.5.0"
   description                       = "EC2 AutoScaling key usage"
@@ -8,6 +8,6 @@ module "janes_kms_key" {
   key_users                         = [data.aws_caller_identity.current.arn]
   key_administrators                = [data.aws_caller_identity.current.arn]
   key_service_roles_for_autoscaling = [aws_iam_service_linked_role.autoscaling.arn]
-  aliases                           = ["Janes-ebs"]
+  aliases                           = ["engrsketch-ebs"]
   tags                              = var.tags
 }

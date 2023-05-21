@@ -2,7 +2,7 @@
 variable "vpc_name" {
   description = "Name of VPC"
   type        = string
-  default     = "Janes-vpc"
+  default     = "engrsketch-vpc"
 }
 variable "vpc_cidr" {
   type    = string

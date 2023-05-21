@@ -10,9 +10,9 @@ module "autoscaling" {
   wait_for_capacity_timeout   = 0
   health_check_type           = "ELB"
   security_groups             = [module.ASG_security_group.security_group_id]
-  vpc_zone_identifier         = module.janes_vpc.private_subnets
+  vpc_zone_identifier         = module.engrsketch_vpc.private_subnets
   service_linked_role_arn     = aws_iam_service_linked_role.autoscaling.arn
-  target_group_arns           = module.janes_alb.target_group_arns
+  target_group_arns           = module.engrsketch_alb.target_group_arns
   enable_monitoring           = true
   launch_template_name        = var.launch_template
   launch_template_description = "EC2 auto scaling launch template"
@@ -21,7 +21,7 @@ module "autoscaling" {
   instance_type               = var.instance_type
   user_data                   = base64encode(file("nginx.sh"))
   create_iam_instance_profile = true
-  iam_role_name               = "janes"
+  iam_role_name               = "engrsketch"
   iam_role_path               = "/ec2/"
   iam_role_description        = "EC2 role for SSM"
   iam_role_policies = {
@@ -37,7 +37,7 @@ module "autoscaling" {
         encrypted             = true
         volume_size           = 20
         volume_type           = "gp2"
-        kms_key_id            = module.janes_kms_key.key_arn
+        kms_key_id            = module.engrsketch_kms_key.key_arn
       }
     }
   ]

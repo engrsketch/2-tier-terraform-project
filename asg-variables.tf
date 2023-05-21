@@ -5,9 +5,9 @@ variable "instance_type" {
 }
 variable "launch_template" {
   type    = string
-  default = "Janes-lt"
+  default = "engrsketch-lt"
 }
 variable "asg_name" {
   type    = string
-  default = "Janes-asg"
+  default = "engrsketch-asg"
 }

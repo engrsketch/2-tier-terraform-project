@@ -1,7 +1,7 @@
 # Public NACL 
 resource "aws_network_acl" "public_nacl" {
-  vpc_id     = module.janes_vpc.vpc_id
-  subnet_ids = module.janes_vpc.public_subnets
+  vpc_id     = module.engrsketch_vpc.vpc_id
+  subnet_ids = module.engrsketch_vpc.public_subnets
   tags       = var.tags
 }
 # Public NACL ingress rules
@@ -88,8 +88,8 @@ resource "aws_network_acl_rule" "public_egress_ephem" {
 }
 # Private NACL
 resource "aws_network_acl" "private_nacl" {
-  vpc_id     = module.janes_vpc.vpc_id
-  subnet_ids = module.janes_vpc.private_subnets
+  vpc_id     = module.engrsketch_vpc.vpc_id
+  subnet_ids = module.engrsketch_vpc.private_subnets
   tags       = var.tags
 }
 # Private NACL ingress rules

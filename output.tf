@@ -5,36 +5,36 @@ output "myazs" {
 # VPC module Outputs
 output "vpc_id" {
   description = "The ID of the VPC"
-  value       = module.janes_vpc.vpc_id
+  value       = module.engrsketch_vpc.vpc_id
 }
 output "vpc_cidr_block" {
   description = "The CIDR block of the VPC"
-  value       = module.janes_vpc.vpc_cidr_block
+  value       = module.engrsketch_vpc.vpc_cidr_block
 }
 output "private_subnets" {
   description = "List of IDs of private subnets"
-  value       = module.janes_vpc.private_subnets
+  value       = module.engrsketch_vpc.private_subnets
 }
 output "private_subnets_cidr_blocks" {
   description = "List of cidr_blocks of private subnets"
-  value       = module.janes_vpc.private_subnets_cidr_blocks
+  value       = module.engrsketch_vpc.private_subnets_cidr_blocks
 }
 output "public_subnets" {
   description = "List of IDs of public subnets"
-  value       = module.janes_vpc.public_subnets
+  value       = module.engrsketch_vpc.public_subnets
 }
 output "public_subnets_cidr_blocks" {
   description = "List of cidr_blocks of public subnets"
-  value       = module.janes_vpc.public_subnets_cidr_blocks
+  value       = module.engrsketch_vpc.public_subnets_cidr_blocks
 }
 # KMS module Outputs
-output "janes_key_arn" {
+output "engrsketch_key_arn" {
   description = "The Amazon Resource Name (ARN) of the key"
-  value       = module.janes_kms_key.key_arn
+  value       = module.engrsketch_kms_key.key_arn
 }
-output "janes_key_id" {
+output "engrsketch_key_id" {
   description = "The globally unique identifier for the key"
-  value       = module.janes_kms_key.key_id
+  value       = module.engrsketch_kms_key.key_id
 }
 
 # Auto scaling service link role output
@@ -54,15 +54,15 @@ output "ASG_security_group_id" {
 # ALB module Outputs
 output "lb_dns_name" {
   description = "The DNS name of the load balancer."
-  value       = module.janes_alb.lb_dns_name
+  value       = module.engrsketch_alb.lb_dns_name
 }
 output "target_group_arns" {
   description = "ARNs of the target groups."
-  value       = module.janes_alb.target_group_arns
+  value       = module.engrsketch_alb.target_group_arns
 }
 output "target_group_names" {
   description = "Name of the target group."
-  value       = module.janes_alb.target_group_names
+  value       = module.engrsketch_alb.target_group_names
 }
 
 # Auto scaling module outputs
