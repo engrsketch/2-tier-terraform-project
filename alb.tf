@@ -3,7 +3,7 @@
 module "engrsketch_alb" {
   source                = "terraform-aws-modules/alb/aws"
   version               = "8.6.0"
-  name                  = "engrsketch-alb"
+  name                  = "${var.env}-engrsketch-alb"
   load_balancer_type    = "application"
   vpc_id                = module.engrsketch_vpc.vpc_id
   subnets               = module.engrsketch_vpc.public_subnets
@@ -36,10 +36,7 @@ module "engrsketch_alb" {
         matcher             = "200"
       }
       protocol_version = "HTTP1"
-      tags = {
-        Environment = "dev"
-        Owner       = "engrsketch"
-      }
+      tags = "${var.tags}"
     }
   ]
 }

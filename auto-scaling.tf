@@ -2,7 +2,7 @@
 module "autoscaling" {
   source                      = "terraform-aws-modules/autoscaling/aws"
   version                     = "6.9.0"
-  name                        = var.asg_name
+  name                        = "${var.env}-${var.asg_name}"
   min_size                    = 2
   max_size                    = 5
   desired_capacity            = 3
@@ -14,14 +14,14 @@ module "autoscaling" {
   service_linked_role_arn     = aws_iam_service_linked_role.autoscaling.arn
   target_group_arns           = module.engrsketch_alb.target_group_arns
   enable_monitoring           = true
-  launch_template_name        = var.launch_template
+  launch_template_name        = "${var.env}-${var.launch_template}"
   launch_template_description = "EC2 auto scaling launch template"
   update_default_version      = true
   image_id                    = data.aws_ami.amzlinux2023.id
   instance_type               = var.instance_type
   user_data                   = base64encode(file("nginx.sh"))
   create_iam_instance_profile = true
-  iam_role_name               = "engrsketch"
+  iam_role_name               = "${var.env}-engrsketch"
   iam_role_path               = "/ec2/"
   iam_role_description        = "EC2 role for SSM"
   iam_role_policies = {

@@ -3,7 +3,7 @@ module "ALB_security_group" {
   source              = "terraform-aws-modules/security-group/aws"
   version             = "4.17.2"
   description         = "ALB security group that allows inbound HTTP traffic from internet"
-  name                = var.alb_sg_name
+  name                = "${var.alb_sg_name}-${var.env}"
   vpc_id              = module.engrsketch_vpc.vpc_id
   ingress_rules       = var.ingress_rules
   ingress_cidr_blocks = var.internet
@@ -18,7 +18,7 @@ module "ASG_security_group" {
   source      = "terraform-aws-modules/security-group/aws"
   version     = "4.17.2"
   description = "ASG security group that allows HTTP traffic from the ALB"
-  name        = var.instance_sg_name
+  name        = "${var.instance_sg_name}-${var.env}"
   vpc_id      = module.engrsketch_vpc.vpc_id
   ingress_with_source_security_group_id = [
     {

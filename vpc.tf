@@ -3,7 +3,7 @@
 module "engrsketch_vpc" {
   source                               = "terraform-aws-modules/vpc/aws"
   version                              = "4.0.1"
-  name                                 = var.vpc_name
+  name                                 = "${var.vpc_name}-${var.env}"
   cidr                                 = var.vpc_cidr
   azs                                  = data.aws_availability_zones.myazs.names
   private_subnets                      = var.private_subnets

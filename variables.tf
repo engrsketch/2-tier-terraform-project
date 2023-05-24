@@ -12,6 +12,10 @@ variable "tags" {
   }
 }
 
+variable "env" {
+  type = string
+  description = "build environment"
+}
 # # VPC variable
 # variable "vpc_name" {
 #   description = "Name of VPC"

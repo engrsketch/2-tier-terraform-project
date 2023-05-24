@@ -8,6 +8,6 @@ module "engrsketch_kms_key" {
   key_users                         = [data.aws_caller_identity.current.arn]
   key_administrators                = [data.aws_caller_identity.current.arn]
   key_service_roles_for_autoscaling = [aws_iam_service_linked_role.autoscaling.arn]
-  aliases                           = ["engrsketch-ebs"]
+  aliases                           = ["${var.env}-ebs"]
   tags                              = var.tags
 }
